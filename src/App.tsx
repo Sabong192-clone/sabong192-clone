@@ -14,11 +14,11 @@ import AuthBox from "./components/AuthBox";
 import { MarcoVoiceOverlay } from "./components/MarcoVoiceOverlay";
 import { MarcoInstaller } from "./marco/MarcoInstaller";
 
-// 🔁 Lazy-loaded routes
-const TransferPointsPanel = lazy(() => import("./pages/TransferPointsPanel"));
-const AuditLogsPanel = lazy(() => import("./pages/AuditLogsPanel"));
-const MatchDashboard = lazy(() => import("./components/MatchDashboard"));
-const MarcoDashboard = lazy(() => import("./marco/MarcoDashboard"));
+// ✅ Vercel-safe lazy imports with .tsx extension
+const TransferPointsPanel = lazy(() => import("./pages/TransferPointsPanel.tsx"));
+const AuditLogsPanel = lazy(() => import("./pages/AuditLogsPanel.tsx"));
+const MatchDashboard = lazy(() => import("./components/MatchDashboard.tsx"));
+const MarcoDashboard = lazy(() => import("./marco/MarcoDashboard.tsx"));
 
 const sampleMatch = {
   id: 1,
