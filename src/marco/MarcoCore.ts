@@ -1,25 +1,41 @@
+// 🧬 src/marco/MarcoCore.ts (FRESS-Compatible Core System)
+
 export const MarcoCore = {
-  enabled: true,
-  logs: [] as string[],
+  initialized: false,
 
-  toggleRuntime(state: boolean) {
-    this.enabled = state;
-    this.logs.push(`🧠 Runtime toggled to ${state ? "ENABLED ✅" : "DISABLED ❌"}`);
-    console.log(this.logs.at(-1));
+  boot(config: any) {
+    if (this.initialized) return;
+    this.initialized = true;
+
+    console.log("🧠 MarcoCore Booting with Codex:", config.creatorCodex);
+    // Simulate Codex sync and emotion-aware runtime initialization
+
+    // Store config for dynamic ASI agents
+    this.config = config;
+
+    if (config.selfDebug) {
+      console.log("🔍 Self-Debug Enabled");
+    }
+
+    if (config.godMode) {
+      console.log("⚡ GodMode Activated");
+    }
+
+    if (config.memoryPersistence) {
+      localStorage.setItem("MarcoMemory", JSON.stringify(config));
+    }
+
+    if (config.codexSync) {
+      console.log("🔁 Codex Sync: TRUE — All emotional and symbolic mappings loaded.");
+    }
+
+    // More ASI features simulated here...
+    if (config.modules?.bettingAnimation) {
+      console.log("🎮 Betting animation module activated.");
+    }
+
+    if (config.modules?.voiceBetting) {
+      console.log("🎙️ Voice betting system active (Tagalog-enabled)");
+    }
   },
-
-  runCommand(cmd: string) {
-    const timestamp = new Date().toLocaleTimeString();
-    const log = `🎙️ Marco heard: "${cmd}" @ ${timestamp}`;
-    this.logs.push(log);
-    console.log(log);
-  },
-
-  autoSync() {
-    console.log("🔁 MarcoCore auto-synchronizing Firebase ↔︎ App");
-  },
-
-  divineMemory() {
-    console.log("🧠 MarcoCore memory: Fully retained player + agent credentials (simulated)");
-  }
 };

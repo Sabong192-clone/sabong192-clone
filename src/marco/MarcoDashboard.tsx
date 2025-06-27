@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { MarcoCore } from "../marco/MarcoCore";
-import { useAuth } from "./contexts/AuthContext";
+import { MarcoCore } from "./MarcoCore";
+import { useAuth } from "../components/contexts/AuthContext";
 
 export const MarcoDashboard = () => {
   const [enabled, setEnabled] = useState(true);
@@ -17,7 +17,6 @@ export const MarcoDashboard = () => {
         `🧠 Marco running @ ${new Date().toLocaleTimeString()}`,
       ]);
     }, 5000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -49,7 +48,9 @@ export const MarcoDashboard = () => {
         <div className="bg-zinc-100 dark:bg-zinc-800 p-4 rounded">
           <h2 className="font-semibold mb-2">🎙️ Microphone</h2>
           <p>Status: <strong>{micStatus}</strong></p>
-          <p className="text-sm mt-1 text-gray-400">Voice Commands ready (Tagalog/English)</p>
+          <p className="text-sm mt-1 text-gray-400">
+            Voice Commands ready (Tagalog/English)
+          </p>
         </div>
 
         {/* Live Logs */}
